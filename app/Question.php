@@ -32,11 +32,12 @@ class Question extends Model
 		$this->falseAnswer5 = $data['false_answer_5'];
 	}
 
+	//Método de insersão da Questão e suas respostas
 	public function insertQuestionDB($userId){
-		//(id,user_id_question,question,correct_answer,false_answer_1,...,false_answer_5)
 		DB::insert('insert into questions (Id, user_id_question,question, correct_answer, false_answer_1, false_answer_2,false_answer_3, false_answer_4, false_answer_5) values (?, ?, ?, ?, ?, ?, ?, ?, ? )', [NULL, $userId, $this->question, $this->correctAnswer, $this->falseAnswer1, $this->falseAnswer2, $this->falseAnswer3, $this->falseAnswer4, $this->falseAnswer5]);
 	}
 
+	//Método de insersão da Resposta
 	public static function insertAnswerDB($userId, $id, $answer){
 		DB::insert('insert into answers (Id, user_id_answer, question_id, answer) values (?, ?, ?, ? )', [NULL, $userId, $id, $answer]);
 	}
@@ -59,7 +60,7 @@ class Question extends Model
 		return $questions;
 	}
 
-	//Método estático verifica se a resposta está correta.
+	//Método estático verifica se a resposta está correta e retorna true ou false.
 	public static function checkAnswer($userId, $id, $answer){
 		self::insertAnswerDB($userId, $id, $answer);
 		$correctAnswer = DB::table('questions')->where('Id', $id)->first();

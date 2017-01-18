@@ -1,43 +1,90 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
 
-                <div class="panel-body">
-                    <center><a href="{{ url('/maker') }}">Criar Quiz</a>
-                    <br>
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <i>Quizzes</i> Disponíveis
-                    <br>
-                    @if(!empty($questions))
-                        <table style="width:50%">
-                        <tr>
-                        <td>ID</td>
-                        <td>ID Criador</td>
-                        <td>Ação</td>
-                        @foreach($questions as $question)   
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+
+@section('content')
+   <div class="container">
+                    <center>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        @if(!empty($questions))
+                            <div class="title m-b-md">
+                            <i>Quizzes</i> Disponíveis
+                            </div>
+                            <table class="table table-striped">
                             <tr>
-                            <td>{{$question['Id']}}</td>
-                            <td>{{$question['user_id_question']}}</td>
-                            <td><a href="{{ url('quiz/'.$question['Id'].'/') }}">Responder Quiz</a></td>
+                            <th width="33%">ID</th>
+                            <th width="33%">ID Criador</th>
+                            <th width="33%">Ação</th>
                             </tr>
-                        @endforeach
-                        </table>
-                    @endif
-                    <br>
-</center>
-                </div>
-            </div>
-        </div>
+                            @foreach($questions as $question)   
+                                <tr>
+                                <td>{{$question['Id']}}</td>
+                                <td>{{$question['user_id_question']}}</td>
+                                <td align="center"><a href="{{ url('quiz/'.$question['Id'].'/') }}">Responder Quiz</a></td>
+                                </tr>
+                            @endforeach
+                            </table>
+                        @else
+                            <div class="title m-b-md">
+                            Não há nenhum <i>Quiz</i> Disponível, faça um <a href="{{ url('/maker') }}">aqui</a>
+                            </div>
+                        @endif
+                        <br>
+                </center>
     </div>
-</div>
 @endsection
-</a>
