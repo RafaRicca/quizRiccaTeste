@@ -20,7 +20,7 @@ class QuizMakerController extends Controller
 
     //Método post do formulário do Quiz, pegará todas as informações que foram inseridas.
     public function postQuestion(Request $request){
-
+        //Poderia usar $request->all(); ou Request:all() / Request:get('algo');
         $rules = array( 'question' => 'required|max:255', 'answer_correct' => 'required|max:255', 'false_answer_1' => 'required|max:255', 'false_answer_2' => 'required|max:255', 'false_answer_3' => 'required|max:255', 'false_answer_4' => 'required|max:255', 'false_answer_5' => 'required|max:255' );
         $validation = Validator::make(Input::all(), $rules);
         $data = array();

@@ -39,6 +39,9 @@ class AnswerController extends Controller
     }
 
     public function doAnswer($idteste){
+        //$idteste é um id do URL, mas não está sendo usado, só para um teste.
+
+        //Input::get recebe por um POST.
         $id = Input::get("id");
         $answerOptionValue = Input::get('option');
         if(Question::checkAnswer(Auth::user()->id, $id, $answerOptionValue) == true){
