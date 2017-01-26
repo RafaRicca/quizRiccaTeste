@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-
+//Observação:
 //Poderia fazer um grupo de rotas que funcionariam através de uma única middleware
 // Route::group(['middleware' => 'terms'], function(){});
 //Get/Post do registro de perguntas
