@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+            <center>
 	            @if (count($errors) > 0)
 				    <div class="alert alert-danger">
 				        <ul>
@@ -14,9 +15,16 @@
 				        </ul>
 				    </div>
 				@endif
+				@if (Session::has('msg'))
+				<div class="alert alert-danger">
+					{{ Session('msg') }}
+				</div>
+				@endif
+				</center>
                 <div class="panel-heading">Registre sua pergunta, responda e crie respostas falsas, {{ Auth::user()->name }}</div>
             	<div class="panel-body">
 				{{ Form::open(array('action' => 'QuizMakerController@postQuestion','role' => 'form')) }}
+				{{ Form::token() }}
 				{{ Form::label('question', 'Pergunta', array('class'=>'control-label')) }}
 				{{ Form::text('question', null, array('placeholder'=>'Sua pergunta', 'class'=>'form-control')) }}
 				{{ Form::label('answer_correct', 'Resposta Correta', array('class'=>'control-label')) }}
@@ -31,6 +39,8 @@
 				{{ Form::text('false_answer_4', null, array('placeholder'=>'Resposta Falsa 4', 'class'=>'form-control')) }}
 				{{ Form::label('false_answer_5', 'Resposta Falsa 5', array('class'=>'control-label')) }}
 				{{ Form::text('false_answer_5', null, array('placeholder'=>'Resposta Falsa 5', 'class'=>'form-control')) }}
+				{{ Form::checkbox('agree', 'true')}}
+				{{ Form::label('agree', 'Aceito os termos', array('class'=>'control-label')) }}
 				<br></br>
 				{{ Form::submit('Registrar Pergunta', array('class' => 'btn btn-default')) }}
 				{{ Form::close() }}

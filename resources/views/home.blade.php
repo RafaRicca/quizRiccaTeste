@@ -56,9 +56,13 @@
 @section('content')
    <div class="container">
                     <center>
-                        @if (session('status'))
+                        @if (Session::has('sucess'))
                             <div class="alert alert-success">
-                                {{ session('status') }}
+                                {{ session('sucess') }}
+                            </div>
+                        @elseif (Session::has('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
                             </div>
                         @endif
                         @if(!empty($questions))
@@ -75,7 +79,7 @@
                                 <tr>
                                 <td>{{$question['Id']}}</td>
                                 <td>{{$question['user_id_question']}}</td>
-                                <td align="center"><a href="{{ url('quiz/'.$question['Id'].'/') }}">Responder Quiz</a></td>
+                                <td align="center"><a href="{{ url('list/'.$question['Id'].'/') }}">Responder Quiz</a></td>
                                 </tr>
                             @endforeach
                             </table>

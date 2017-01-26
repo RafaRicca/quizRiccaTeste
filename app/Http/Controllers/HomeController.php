@@ -4,6 +4,7 @@ namespace QuizRiccaTeste\Http\Controllers;
 
 use QuizRiccaTeste\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {

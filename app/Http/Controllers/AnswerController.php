@@ -38,13 +38,15 @@ class AnswerController extends Controller
         return $answer;
     }
 
-    public function postAnswer(){
+    public function doAnswer($idteste){
         $id = Input::get("id");
         $answerOptionValue = Input::get('option');
         if(Question::checkAnswer(Auth::user()->id, $id, $answerOptionValue) == true){
-            return redirect('home')->with('status', 'Resposta Correta!');
+            return redirect('home')->with('sucess', 'Resposta Correta!');
         } else {
-            return redirect('home')->with('status', 'Resposta Incorreta!');
+            return redirect('home')->with('error', 'Resposta Incorreta!');
+            /* Retorna para a view anterior com uma mensagem de erro*/
+            //return redirect()->back(); 
         }
     }
 

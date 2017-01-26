@@ -19,12 +19,17 @@ Auth::routes();
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-//Get/Post do registro de perguntas
-Route::get('maker', 'QuizMakerController@index');
-Route::post('maker', 'QuizMakerController@postQuestion');
 
-Route::get('quiz/{id}', 'AnswerController@index');
-Route::post('quiz/{questionid}', ['as' => 'test', 'uses' => 'AnswerController@postAnswer']);
+//Poderia fazer um grupo de rotas que funcionariam através de uma única middleware
+// Route::group(['middleware' => 'terms'], function(){});
+//Get/Post do registro de perguntas
+Route::get('maker', ['as' => 'maker', 'uses' => 'QuizMakerController@index']);
+Route::post('postQuestion', ['middleware' => 'terms','as' => 'postQuestion', 'uses' => 'QuizMakerController@postQuestion']);
+
+Route::get('list/{id}', ['as' => 'list', 'uses' => 'AnswerController@index']);
+Route::post('list/{idteste}', ['as' => 'postQuiz', 'uses' => 'AnswerController@doAnswer']);
+
+
 
 /*
 

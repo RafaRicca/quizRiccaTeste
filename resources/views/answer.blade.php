@@ -8,7 +8,7 @@
                 <div class="panel-heading">Marque a resposta que você considere a correta, {{ Auth::user()->name }}</div>
             	<div class="panel-body">
                 Pergunta: {{$questionOriginal['question']}}
-				<form action="" method="POST">
+                {{ Form::open(array('route' => array('postQuiz', $questionOriginal['Id']))) }}
 				<input type="hidden" name="id" value="{{$questionOriginal['Id']}}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="radio" name="option" value="{{$questions[0]}}">{{$questions[0]}}</input>

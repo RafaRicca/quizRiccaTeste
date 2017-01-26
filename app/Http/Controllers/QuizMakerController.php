@@ -9,6 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
+
 class QuizMakerController extends Controller
 {
 
@@ -18,7 +19,8 @@ class QuizMakerController extends Controller
     }
 
     //Método post do formulário do Quiz, pegará todas as informações que foram inseridas.
-    public function postQuestion(){
+    public function postQuestion(Request $request){
+
         $rules = array( 'question' => 'required|max:255', 'answer_correct' => 'required|max:255', 'false_answer_1' => 'required|max:255', 'false_answer_2' => 'required|max:255', 'false_answer_3' => 'required|max:255', 'false_answer_4' => 'required|max:255', 'false_answer_5' => 'required|max:255' );
         $validation = Validator::make(Input::all(), $rules);
         $data = array();
