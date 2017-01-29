@@ -72,14 +72,16 @@
                             <table class="table table-striped">
                             <tr>
                             <th width="33%">ID</th>
-                            <th width="33%">ID Criador</th>
+                            <th width="33%">Criador</th>
+                            <th width="33%">Pergunta</th>
                             <th width="33%">Ação</th>
                             </tr>
                             @foreach($questions as $question)   
                                 <tr>
                                 <td>{{$question['Id']}}</td>
-                                <td>{{$question['user_id_question']}}</td>
-                                <td align="center"><a href="{{ url('list/'.$question['Id'].'/') }}">Responder Quiz</a></td>
+                                <td>{{$question['name']}}</td>
+                                <td>{{$question['question']}}</td>
+                                <td align="center"><a href="{{ url('list/'.$question['Id'].'/') }}">Responder</a></td>
                                 </tr>
                             @endforeach
                             </table>

@@ -42,7 +42,8 @@ class HomeController extends Controller
         var_dump($questionnovo[0]["Id"]);
        // echo $resultArray[0]["user_id_question"];
        */
-        echo (Question::doSomethingWeirdo());
+        //echo (Question::doSomethingWeirdo());
+
         $question = Question::listQuestions();
         return view('/home', ['questions' => json_decode(json_encode($question), true)]);
         //return view('home');

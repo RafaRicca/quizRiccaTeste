@@ -58,8 +58,10 @@ class Question extends Model
 
 	//Método estático que retorna uma lista com as perguntas com ID da pergunta e o ID de quem fez a pergunta.
 	public static function listQuestions(){
-		$questions = DB::select('Select Id, user_id_question from questions');
-		return $questions;
+		return DB::table('questions')
+		->join('users', 'questions.user_id_question', '=', 'users.id')
+		->select('questions.Id', 'users.name', 'questions.question')
+		->get();	
 	}
 
 	public static function doSomethingWeirdo(){
