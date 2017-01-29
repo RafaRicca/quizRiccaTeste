@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => QuizRiccaTeste\User::class,
+            'model' => QuizRicca\User::class,
         ],
 
         // 'users' => [

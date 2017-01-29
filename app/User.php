@@ -1,13 +1,15 @@
 <?php
 
-namespace QuizRiccaTeste;
+namespace QuizRicca;
 
 use Illuminate\Notifications\Notifiable;
+use Artesaos\Defender\Traits\HasDefender;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use hasDefender;
 
     /**
      * The attributes that are mass assignable.

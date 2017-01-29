@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste;
+namespace QuizRicca;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Question extends Model
 {
+	protected $hidden = ['password'];
 	public $question;
 	private $correctAnswer;
 	private $falseAnswer1;
@@ -15,6 +16,7 @@ class Question extends Model
 	private $falseAnswer3;
 	private $falseAnswer4;
 	private $falseAnswer5;
+
 
 	//Inicializador da classe Question
 	public function __construct($data){
@@ -58,6 +60,13 @@ class Question extends Model
 	public static function listQuestions(){
 		$questions = DB::select('Select Id, user_id_question from questions');
 		return $questions;
+	}
+
+	public static function doSomethingWeirdo(){
+		return DB::table('users')
+		->join('answers', 'users.id', '=', 'answers.user_id_answer')
+		->select('users.name', 'answers.Id')
+		->get();						
 	}
 
 	//Método estático verifica se a resposta está correta e retorna true ou false.

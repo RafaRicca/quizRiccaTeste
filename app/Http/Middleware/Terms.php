@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste\Http\Middleware;
+namespace QuizRicca\Http\Middleware;
 
 use Closure;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace QuizRiccaTeste\Http\Controllers;
+namespace QuizRicca\Http\Controllers;
 
-use QuizRiccaTeste\Question;
+use QuizRicca\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;

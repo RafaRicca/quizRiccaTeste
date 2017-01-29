@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste\Exceptions;
+namespace QuizRicca\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

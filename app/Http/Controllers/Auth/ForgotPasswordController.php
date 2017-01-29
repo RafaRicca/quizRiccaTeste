@@ -1,8 +1,8 @@
 <?php
 
-namespace QuizRiccaTeste\Http\Controllers\Auth;
+namespace QuizRicca\Http\Controllers\Auth;
 
-use QuizRiccaTeste\Http\Controllers\Controller;
+use QuizRicca\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

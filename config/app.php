@@ -162,6 +162,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        \Artesaos\Defender\Providers\DefenderServiceProvider::class,
+
 
 
         /*
@@ -173,11 +175,11 @@ return [
         /*
          * Application Service Providers...
          */
-        QuizRiccaTeste\Providers\AppServiceProvider::class,
-        QuizRiccaTeste\Providers\AuthServiceProvider::class,
-        // QuizRiccaTeste\Providers\BroadcastServiceProvider::class,
-        QuizRiccaTeste\Providers\EventServiceProvider::class,
-        QuizRiccaTeste\Providers\RouteServiceProvider::class,
+        QuizRicca\Providers\AppServiceProvider::class,
+        QuizRicca\Providers\AuthServiceProvider::class,
+        // QuizRicca\Providers\BroadcastServiceProvider::class,
+        QuizRicca\Providers\EventServiceProvider::class,
+        QuizRicca\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -228,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Defender' => \Artesaos\Defender\Facades\Defender::class,
 
     ],
 

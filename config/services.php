@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => QuizRiccaTeste\User::class,
+        'model' => QuizRicca\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

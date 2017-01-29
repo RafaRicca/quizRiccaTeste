@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste\Providers;
+namespace QuizRicca\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'QuizRiccaTeste\Events\SomeEvent' => [
-            'QuizRiccaTeste\Listeners\EventListener',
+        'QuizRicca\Events\SomeEvent' => [
+            'QuizRicca\Listeners\EventListener',
         ],
     ];
 

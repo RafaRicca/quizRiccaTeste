@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste\Providers;
+namespace QuizRicca\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'QuizRiccaTeste\Model' => 'QuizRiccaTeste\Policies\ModelPolicy',
+        'QuizRicca\Model' => 'QuizRicca\Policies\ModelPolicy',
     ];
 
     /**

@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    QuizRiccaTeste\Http\Kernel::class
+    QuizRicca\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    QuizRiccaTeste\Console\Kernel::class
+    QuizRicca\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    QuizRiccaTeste\Exceptions\Handler::class
+    QuizRicca\Exceptions\Handler::class
 );
 
 /*

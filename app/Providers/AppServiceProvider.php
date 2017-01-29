@@ -1,6 +1,6 @@
 <?php
 
-namespace QuizRiccaTeste\Providers;
+namespace QuizRicca\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

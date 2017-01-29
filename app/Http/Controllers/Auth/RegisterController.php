@@ -1,9 +1,9 @@
 <?php
 
-namespace QuizRiccaTeste\Http\Controllers\Auth;
+namespace QuizRicca\Http\Controllers\Auth;
 
-use QuizRiccaTeste\User;
-use QuizRiccaTeste\Http\Controllers\Controller;
+use QuizRicca\User;
+use QuizRicca\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
