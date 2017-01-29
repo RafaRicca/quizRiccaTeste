@@ -26,9 +26,19 @@ Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('maker', ['as' => 'maker', 'uses' => 'QuizMakerController@index']);
 Route::post('postQuestion', ['middleware' => 'terms','as' => 'postQuestion', 'uses' => 'QuizMakerController@postQuestion']);
 
-Route::get('list/{id}', ['as' => 'list', 'uses' => 'AnswerController@index']);
+
+
+Route::get('quiz/{id}', ['as' => 'quiz', 'uses' => 'AnswerController@index']);
+
+//Não faz sentido colocar um {idteste} em um método post, mas pode ser usado.
 Route::post('list/{idteste}', ['as' => 'postQuiz', 'uses' => 'AnswerController@doAnswer']);
 
+
+
+/*
+O uso de apelidos podemos usá-los para serem referenciados sem ter que mudar...
+<a href="{{ route('quiz', ['id' => $question['Id']]) }}">Responder</a>
+*/
 
 
 /*

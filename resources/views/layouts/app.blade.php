@@ -60,8 +60,8 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                    <a href="{{ url('/home') }}">Home</a>
-                                    <a href="{{ url('/maker') }}">Criar Quiz</a>
+                                    <a href="{{ route('home') }}">Home</a>
+                                    <a href="{{ route('maker') }}">Criar Quiz</a>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -81,7 +81,7 @@
                                 <td>{{$question['Id']}}</td>
                                 <td>{{$question['name']}}</td>
                                 <td>{{$question['question']}}</td>
-                                <td align="center"><a href="{{ url('list/'.$question['Id'].'/') }}">Responder</a></td>
+                                <td align="center"><a href="{{ route('quiz', ['id' => $question['Id']]) }}">Responder</a></td>
                                 </tr>
                             @endforeach
                             </table>
