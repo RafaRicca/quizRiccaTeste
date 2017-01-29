@@ -25,6 +25,7 @@ Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 //Get/Post do registro de perguntas
 Route::get('maker', ['as' => 'maker', 'uses' => 'QuizMakerController@index']);
 Route::post('postQuestion', ['middleware' => 'terms','as' => 'postQuestion', 'uses' => 'QuizMakerController@postQuestion']);
+Route::get('deleteQuestion/{id}', ['as' => 'deleteQuestion', 'uses' => 'QuizMakerController@deleteQuestion']);
 
 
 
@@ -35,8 +36,9 @@ Route::post('list/{idteste}', ['as' => 'postQuiz', 'uses' => 'AnswerController@d
 
 
 
+
 /*
-O uso de apelidos podemos usá-los para serem referenciados sem ter que mudar...
+O uso de apelidos podemos usá-los para serem referenciados sem ter que mudar todas suas instâncias...
 <a href="{{ route('quiz', ['id' => $question['Id']]) }}">Responder</a>
 */
 

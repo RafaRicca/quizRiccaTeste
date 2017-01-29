@@ -81,7 +81,10 @@
                                 <td>{{$question['Id']}}</td>
                                 <td>{{$question['name']}}</td>
                                 <td>{{$question['question']}}</td>
-                                <td align="center"><a href="{{ route('quiz', ['id' => $question['Id']]) }}">Responder</a></td>
+                                <td align="center"><a href="{{ route('quiz', ['id' => $question['Id']]) }}">Responder</a>
+                                @if ($question['owner'] == true)
+                                <a href="{{ route('deleteQuestion', ['id' => $question['Id']]) }}">Deletar</a></td>
+                                @endif
                                 </tr>
                             @endforeach
                             </table>

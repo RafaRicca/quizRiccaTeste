@@ -60,7 +60,7 @@ class Question extends Model
 	public static function listQuestions(){
 		return DB::table('questions')
 		->join('users', 'questions.user_id_question', '=', 'users.id')
-		->select('questions.Id', 'users.name', 'questions.question')
+		->select('questions.Id', 'users.name', 'questions.question', 'users.id')
 		->get();	
 	}
 
@@ -69,6 +69,10 @@ class Question extends Model
 		->join('answers', 'users.id', '=', 'answers.user_id_answer')
 		->select('users.name', 'answers.Id')
 		->get();						
+	}
+
+	public static function checkOwner($id){
+		return DB::table('questions')->where('Id', $id)->first();
 	}
 
 	//Método estático verifica se a resposta está correta e retorna true ou false.
@@ -82,5 +86,8 @@ class Question extends Model
 		}
 	}
 
+	public static function removeQuestion($id){
+		return DB::table('questions')->where('id', '=', $id)->delete();
+	}
 
 }

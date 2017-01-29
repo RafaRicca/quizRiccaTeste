@@ -18,6 +18,15 @@ class QuizMakerController extends Controller
         return view('maker');
     }
 
+    public function deleteQuestion($id){
+        if(Question::checkOwner($id)->Id == Auth::user()->id){
+            Question::removeQuestion($id);
+            return redirect('home')->with('sucess', 'Quiz Deletado!');
+        } else {
+            return redirect('home')->with('error', 'Você não tem permissão!');
+        }
+    }
+
     //Método post do formulário do Quiz, pegará todas as informações que foram inseridas.
     public function postQuestion(Request $request){
         //Poderia usar $request->all(); ou Request:all() / Request:get('algo');
@@ -38,14 +47,15 @@ class QuizMakerController extends Controller
             //Question::insertQuestionDB($data, Auth::user()->id);
             $question = new Question($data);
             $question->insertQuestionDB(Auth::user()->id);
-            return redirect()->route('home');
+            return redirect('home')->with('sucess', 'Quiz Registrado!');
         //Caso há falhas volte com os inputs
         } else {
            return redirect('maker')
             ->withErrors($validation)
             ->withInput();
-}
-
+        }
     }
+
+
 }
 

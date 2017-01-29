@@ -43,8 +43,15 @@ class HomeController extends Controller
        // echo $resultArray[0]["user_id_question"];
        */
         //echo (Question::doSomethingWeirdo());
-
+        //dd(Question::listQuestions()[0]->name);
         $question = Question::listQuestions();
+        foreach ($question as $key => $value) {
+            if($value->id == Auth::user()->id){
+                $value->owner = True;
+            } else {
+                $value->owner = False;
+            }
+        }
         return view('/home', ['questions' => json_decode(json_encode($question), true)]);
         //return view('home');
     }
